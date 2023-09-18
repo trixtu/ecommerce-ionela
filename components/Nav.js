@@ -13,6 +13,7 @@ import {
 import { useRouter } from 'next/router'
 import { signOut } from 'next-auth/react'
 import Logo from './Logo'
+import { Projector } from 'lucide-react'
 
 export default function Nav({ show }) {
   const router = useRouter()
@@ -43,6 +44,13 @@ export default function Nav({ show }) {
         >
           <Home size={20} />
           Daschboard
+        </Link>
+        <Link
+          className={pathname.includes('/slider') ? activeLink : inactiveLink}
+          href={'/slider'}
+        >
+          <Projector />
+          Slider
         </Link>
         <Link
           className={pathname.includes('/products') ? activeLink : inactiveLink}
