@@ -8,8 +8,8 @@ export default async function handle(req, res) {
   const { method } = req
 
   if (method === 'POST') {
-    const { title, value } = req.body
-    const textareaDoc = await Textarea.create({ title, value })
+    const { title, value, image } = req.body
+    const textareaDoc = await Textarea.create({ title, value, image })
     res.json(textareaDoc)
   }
 
@@ -22,8 +22,8 @@ export default async function handle(req, res) {
   }
 
   if (method === 'PUT') {
-    const { _id, title, value } = req.body
-    await Textarea.updateOne({ _id }, { title, value })
+    const { _id, title, value, image } = req.body
+    await Textarea.updateOne({ _id }, { title, value, image })
     res.json(true)
   }
 }

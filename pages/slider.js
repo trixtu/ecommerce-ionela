@@ -36,7 +36,6 @@ function SliderPage({ swal }) {
     })
   }
 
-  console.log(sliders)
   async function uploadImages(ev) {
     const files = ev.target?.files
     if (files?.length > 0) {
