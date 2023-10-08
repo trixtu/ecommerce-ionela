@@ -13,7 +13,7 @@ import {
 import { useRouter } from 'next/router'
 import { signOut } from 'next-auth/react'
 import Logo from './Logo'
-import { Projector } from 'lucide-react'
+import { Projector, ClipboardEdit } from 'lucide-react'
 
 export default function Nav({ show }) {
   const router = useRouter()
@@ -31,19 +31,26 @@ export default function Nav({ show }) {
     <aside
       className={
         (show ? 'left-0' : '-left-full') +
-        ' top-0 text-gray-500 p-4 fixed w-full bg-bgGray h-full md:static md:w-auto transition-all z-50'
+        ' top-0 text-gray-500 p-4 fixed w-full bg-bgGray md:static md:w-auto transition-all z-50  h-screen overflow-y-scroll'
       }
     >
       <div className="mr-4 mb-4">
         <Logo />
       </div>
-      <nav className="flex flex-col gap-2 ">
+      <nav className="flex flex-col gap-2">
         <Link
           className={pathname === '/' ? activeLink : inactiveLink}
           href={'/'}
         >
           <Home size={20} />
           Daschboard
+        </Link>
+        <Link
+          className={pathname.includes('/textarea') ? activeLink : inactiveLink}
+          href={'/textarea'}
+        >
+          <ClipboardEdit />
+          Textarea
         </Link>
         <Link
           className={pathname.includes('/slider') ? activeLink : inactiveLink}
